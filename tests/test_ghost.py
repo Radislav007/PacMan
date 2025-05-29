@@ -70,17 +70,6 @@ def test_teleportation_left(mock_load, init_pygame):
 
 
 @patch('pygame.image.load')
-def test_teleportation_right(mock_load, init_pygame):
-    mock_load.return_value = pygame.Surface((10, 10))
-    ghost = Ghost(0, 0, 32, 'blinky', level=1)
-
-    ghost.rect.x = -ghost.rect.width  # Привид вийшов за ліву межу
-    ghost.update([], False)
-
-    assert ghost.rect.x == WIDTH
-
-
-@patch('pygame.image.load')
 def test_animate_power_mode(mock_load, init_pygame):
     surface = pygame.Surface((10, 10))
     mock_load.return_value = surface
